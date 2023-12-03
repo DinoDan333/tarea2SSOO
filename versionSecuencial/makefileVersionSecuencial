@@ -1,0 +1,11 @@
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall -Wextra
+OPENCV_FLAGS = $(shell pkg-config --cflags --libs opencv4)
+
+all: versionSecuencial
+
+versionSecuencial: versionSecuencial.cpp
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(OPENCV_FLAGS)
+
+clean:
+	rm -f versionSecuencial
